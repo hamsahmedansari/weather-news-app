@@ -9,19 +9,35 @@ p {
 }
 section {
   height: 100vh;
+  color: #fff;
 }
 nav {
-  background: rgba(1, 1, 1, 0.31);
+  background: rgba(0, 0, 0, 0.13);
   .navbar-brand {
     font-weight: 600;
     color: #fff !important;
   }
   .search {
-    background: rgba(1, 1, 1, 0.31);
+    background: rgba(1, 1, 1, 0.16);
     border: 0px;
     color: #fff;
     &:focus {
-      background: rgba(1, 1, 1, 0.31);
+      background: rgba(1, 1, 1, 0.16);
+      color: #fff;
+    }
+    &::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #fff;
+      opacity: 1; /* Firefox */
+    }
+
+    &:-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: #fff;
+    }
+
+    &::-ms-input-placeholder {
+      /* Microsoft Edge */
       color: #fff;
     }
   }
@@ -31,15 +47,27 @@ nav {
 }
 .temperature {
   //   background: red;
-  font-weight: 300;
+  font-weight: 100;
   i {
-    font-size: 10vh;
+    font-size: 5vh;
     margin: 5px;
     margin-bottom: 20px;
     margin-right: 8px;
+    &.sunny {
+      color: #f9d71c;
+    }
+    &.mostly-cloudy {
+    }
+    &.cloudy {
+    }
+    &.light-raining {
+    }
+    &.raning {
+    }
   }
   p {
     font-size: 15vh;
+    font-weight: 100;
   }
   > .d-flex {
     > div {
@@ -50,4 +78,17 @@ nav {
 #forecast-left,
 #forecast-right {
   font-size: 30px;
+}
+
+.owl-forecast {
+  > div {
+    p:nth-child(4) {
+      font-size: 12px;
+      text-transform: capitalize;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
 }

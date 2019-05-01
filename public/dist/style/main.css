@@ -11,10 +11,11 @@ p {
 
 section {
   height: 100vh;
+  color: #fff;
 }
 
 nav {
-  background: rgba(1, 1, 1, 0.31);
+  background: rgba(0, 0, 0, 0.13);
 }
 
 nav .navbar-brand {
@@ -23,13 +24,51 @@ nav .navbar-brand {
 }
 
 nav .search {
-  background: rgba(1, 1, 1, 0.31);
+  background: rgba(1, 1, 1, 0.16);
   border: 0px;
   color: #fff;
 }
 
 nav .search:focus {
-  background: rgba(1, 1, 1, 0.31);
+  background: rgba(1, 1, 1, 0.16);
+  color: #fff;
+}
+
+nav .search::-webkit-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 1;
+  /* Firefox */
+}
+
+nav .search:-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 1;
+  /* Firefox */
+}
+
+nav .search::-ms-input-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 1;
+  /* Firefox */
+}
+
+nav .search::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  opacity: 1;
+  /* Firefox */
+}
+
+nav .search:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+}
+
+nav .search::-ms-input-placeholder {
+  /* Microsoft Edge */
   color: #fff;
 }
 
@@ -38,18 +77,23 @@ nav .navbar-toggler-icon {
 }
 
 .temperature {
-  font-weight: 300;
+  font-weight: 100;
 }
 
 .temperature i {
-  font-size: 10vh;
+  font-size: 5vh;
   margin: 5px;
   margin-bottom: 20px;
   margin-right: 8px;
 }
 
+.temperature i.sunny {
+  color: #f9d71c;
+}
+
 .temperature p {
   font-size: 15vh;
+  font-weight: 100;
 }
 
 .temperature > .d-flex > div {
@@ -59,5 +103,15 @@ nav .navbar-toggler-icon {
 #forecast-left,
 #forecast-right {
   font-size: 30px;
+}
+
+.owl-forecast > div p:nth-child(4) {
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.owl-forecast > div p {
+  margin: 0;
+  padding: 0;
 }
 /*# sourceMappingURL=main.css.map */
