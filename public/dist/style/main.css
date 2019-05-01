@@ -2,4 +2,28 @@
   padding: 0;
   margin: 0;
 }
+
+section {
+  height: 100vh;
+}
+
+nav {
+  background: rgba(1, 1, 1, 0.31);
+}
+
+nav .navbar-brand {
+  font-weight: bolder;
+  color: #fff !important;
+}
+
+nav .search {
+  background: rgba(1, 1, 1, 0.31);
+  border: 0px;
+  color: #fff;
+}
+
+nav .search:focus {
+  background: rgba(1, 1, 1, 0.31);
+  color: #fff;
+}
 /*# sourceMappingURL=main.css.map */
