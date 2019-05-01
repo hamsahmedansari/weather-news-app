@@ -1,6 +1,12 @@
-* {
-  padding: 0;
-  margin: 0;
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
+*:not(i) {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+p {
+  margin: 0 !important;
 }
 
 section {
@@ -12,7 +18,7 @@ nav {
 }
 
 nav .navbar-brand {
-  font-weight: bolder;
+  font-weight: 600;
   color: #fff !important;
 }
 
@@ -25,5 +31,28 @@ nav .search {
 nav .search:focus {
   background: rgba(1, 1, 1, 0.31);
   color: #fff;
+}
+
+nav .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://ww…p='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+.temperature {
+  font-weight: 300;
+}
+
+.temperature i {
+  font-size: 10vh;
+  margin: 5px;
+  margin-bottom: 20px;
+  margin-right: 8px;
+}
+
+.temperature p {
+  font-size: 15vh;
+}
+
+.temperature > .d-flex > div {
+  font-size: 20px;
 }
 /*# sourceMappingURL=main.css.map */
