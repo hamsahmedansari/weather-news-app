@@ -12,6 +12,7 @@ section {
   color: #fff;
 }
 nav {
+  transition: all ease-in-out 0.3s;
   background: rgba(0, 0, 0, 0.13);
   .navbar-brand {
     font-weight: 600;
