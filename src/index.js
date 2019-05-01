@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
 
+const path = require("./util/path");
+
 // routes
-app.get("/", (req, res) => {
-  res.send("testing");
-});
+app.use(express.static(path.public)); //Static
+
 
 // server
 const port = process.env.PORT || 3000;
