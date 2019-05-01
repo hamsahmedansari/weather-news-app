@@ -1,4 +1,12 @@
 $(document).ready(function() {
+  $("html, body").animate(
+    {
+      scrollTop: 0
+    },
+    500,
+    "linear"
+  );
+
   const owlForecast = $(".owl-forecast");
   owlForecast.owlCarousel({
     items: 7,
@@ -34,7 +42,7 @@ $(document).ready(function() {
     items: 7,
     loop: true,
     margin: 10,
-    // autoplay: true,
+    autoplay: true,
     autoplayTimeout: 1000,
     autoplayHoverPause: true,
     responsive: {
@@ -52,4 +60,23 @@ $(document).ready(function() {
       }
     }
   });
+  // scrolling effect
 });
+function changeSlide(params) {
+  let dot = null;
+
+  if (params === "news") {
+    dot = "section1";
+  } else if (params === "forecast") {
+    dot = "section2";
+  }
+  $(`.section1,.section2`).removeClass("active");
+  $(`.${dot}`).addClass("active");
+  $("html, body").animate(
+    {
+      scrollTop: $(`#${params}`).offset().top
+    },
+    500,
+    "linear"
+  );
+}
