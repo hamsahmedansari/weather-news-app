@@ -28,4 +28,28 @@ $(document).ready(function() {
   $("#forecast-left").on("click", function() {
     owlForecast.trigger("prev.owl.carousel");
   });
+
+  const owlNews = $(".owl-news");
+  owlNews.owlCarousel({
+    items: 7,
+    loop: true,
+    margin: 10,
+    // autoplay: true,
+    autoplayTimeout: 1000,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      300: {
+        items: 1
+      },
+      800: {
+        items: 2
+      },
+      1000: {
+        items: 3
+      }
+    }
+  });
 });
