@@ -55,4 +55,9 @@ nav .navbar-toggler-icon {
 .temperature > .d-flex > div {
   font-size: 20px;
 }
+
+#forecast-left,
+#forecast-right {
+  font-size: 30px;
+}
 /*# sourceMappingURL=main.css.map */
