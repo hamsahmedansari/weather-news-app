@@ -64,7 +64,7 @@ $(document).ready(function() {
   $(document).on("scroll", function() {
     const section = $("#news").offset().top;
     const currentPosition = $(document).scrollTop();
-    console.log(section, currentPosition);
+    // console.log(section, currentPosition);
     if (currentPosition > section - 45) {
       $("nav").addClass("bg-danger");
     } else {
