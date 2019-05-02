@@ -46,11 +46,16 @@ $(document).ready(() => {
 
     // setting image/icon
     viewweathericon.attr("src", getImageUrl(forecast));
+    // setting temperature
     const temperatureF =
       (Number(forecast[0].Temperature.Maximum.Value) +
         Number(forecast[0].Temperature.Minimum.Value)) /
       2;
     viewweathertemperature.html(Math.round(temperatureF));
+    // setting parser
+    viewweatherphase.html(getWeatherPace(forecast));
+
+    viewweatherdatetime.html(getDate(forecast[0].Date));
   }
   function updateRegionView(params) {
     // const view-region-country-details = $('#view-region-country-details');
@@ -74,9 +79,38 @@ $(document).ready(() => {
     }
     return `https://developer.accuweather.com/sites/default/files/${imgNum}-s.png`;
   }
+  function getWeatherPace(forecast) {
+    if (isDay()) {
+      return forecast[0].Day.IconPhrase;
+    }
+    return forecast[0].Night.IconPhrase;
+  }
   function isDay() {
     const hours = new Date().getHours();
     return hours > 6 && hours < 20;
+  }
+  function getDate(param) {
+    const date = new Date(param);
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+
+    const day = date.getDate();
+    const monthIndex = date.getMonth();
+    const year = date.getFullYear();
+
+    return day + " " + monthNames[monthIndex] + ", " + year;
   }
   //
   searchByCity();
