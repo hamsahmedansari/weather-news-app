@@ -1,4 +1,36 @@
 $(document).ready(function() {
+  $("#temperature-F").on("click", e => {
+    if ($("#temperature-F").hasClass("active")) {
+      console.log("not firing");
+
+      return;
+    }
+    $("#temperature-C").removeClass("active");
+    $("#temperature-F").addClass("active");
+    $(".view-temperature-icon").html("F");
+    const temp = document.getElementsByClassName("view-temperature");
+    for (let index = 0; index < temp.length; index++) {
+      const element = temp[index];
+      element.innerText = changeTemperature("F", element.innerText);
+    }
+  });
+  $("#temperature-C").on("click", e => {
+    $("#temperature-F").removeClass("active");
+    $("#temperature-C").addClass("active");
+    $(".view-temperature-icon").html("C");
+    const temp = document.getElementsByClassName("view-temperature");
+    for (let index = 0; index < temp.length; index++) {
+      const element = temp[index];
+      element.innerText = changeTemperature("C", element.innerText);
+    }
+  });
+  function changeTemperature(params, value) {
+    if (params === "F") {
+      return Math.round((value * 9) / 5 + 32);
+    } else {
+      return Math.round(((value - 32) * 5) / 9);
+    }
+  }
   $("html, body").animate(
     {
       scrollTop: 0
