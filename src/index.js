@@ -10,9 +10,6 @@ app.set("view engine", "hbs");
 hbs.registerPartials(path.template + "/partials");
 // routes
 app.use(express.static(path.public)); //Static
-app.get("/", (req, res) => {
-  res.render("index");
-});
 app.get("/api/city", (req, res) => {
   const city = req.query.name;
   // helper(city).then(d => {
@@ -250,6 +247,13 @@ app.get("/api/city", (req, res) => {
   };
   res.send(static);
 });
+app.get("/", (req, res) => {
+  res.render("index");
+});
+app.get("*", (req, res) => {
+  res.render("404");
+});
+
 // server
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`App is running on Port ${port}`));
