@@ -34,22 +34,32 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-2"></div>
                         <div class="col-lg-6 col-md-8 col-12 text-center">
-                            <h3>Karachi,Pakistan</h3>
+                            <h3 id="view-region-country-details">Karachi,Pakistan</h3>
                             <div class="temperature d-flex justify-content-center align-items-center">
-                                <div class="item"><i class="fas fa-sun sunny"></i></div>
                                 <div class="item">
-                                    <p>40<sup>&#176;</sup></p>
+                                    {{!-- <i class="fas fa-sun sunny" id="view-weather-icon"></i> --}}
+                                    <img src="https://developer.accuweather.com/sites/default/files/01-s.png"
+                                        id="view-weather-icon" alt="">
+                                </div>
+                                <div class="item">
+                                    <p><span id="view-weather-temperature">40</span><sup>&#176;</sup></p>
                                 </div>
                                 <div class="item d-flex flex-column">
                                     <div class="item">F</div>
                                     <div class="item">C</div>
                                 </div>
                             </div>
-                            <h5>Sunny</h5>
-                            <p>Update at 4:40pm</p>
+                            <h5 id="view-weather-phase">Sunny</h5>
+                            <p>Update at <span id="view-weather-date-time"></span></p>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Magni, suscipit molestias asperiores,
+                                <strong>Content : </strong> <span id="view-region-content">asd</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <strong>Country : </strong> <span id="view-region-country">Pakistan</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <strong>State/Provence : </strong> <span id="view-region-state">Pakistan</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <strong>Location : </strong> <span id="view-region-location">1,1</span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </p>
                         </div>
                         <div class="col-lg-3 col-md-2"></div>
@@ -136,7 +146,7 @@
 
     <section class="w-100 bg-white pt-5 news" id="news">
         <div class="container text-center pt-5">
-            <h1 class="text-dark">News from Pakistan</h1>
+            <h1 class="text-dark">News from <Span id="view-region-country-news"></Span></h1>
             <div class="owl-news owl-carousel mt-5 news-blog">
                 <div class="card">
                     <a class="img-card" href="#">

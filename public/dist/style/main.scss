@@ -49,7 +49,7 @@ nav {
 .temperature {
   //   background: red;
   font-weight: 100;
-  i {
+  img {
     font-size: 5vh;
     margin: 5px;
     margin-bottom: 20px;
@@ -179,4 +179,7 @@ nav {
       }
     }
   }
+}
+strong {
+  font-weight: 400;
 }

@@ -223,4 +223,8 @@ nav .navbar-toggler-icon {
   font-weight: 900;
   content: "\f111";
 }
+
+strong {
+  font-weight: 400;
+}
 /*# sourceMappingURL=main.css.map */
