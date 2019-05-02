@@ -1,4 +1,5 @@
 const express = require("express");
+const hbs = require("hbs");
 const app = express();
 
 const path = require("./util/path");
@@ -6,7 +7,7 @@ const path = require("./util/path");
 // view engine
 app.set("views", path.template + "/views");
 app.set("view engine", "hbs");
-
+hbs.registerPartials(path.template + "/partials");
 // routes
 app.use(express.static(path.public)); //Static
 
