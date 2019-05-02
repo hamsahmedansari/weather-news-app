@@ -1,6 +1,7 @@
 const searchInput = $(".search-input");
 const searchBtn = $(".search-btn");
 const searchForm = $(".search-form");
+const loading = $("#myModal");
 
 searchForm.on("submit", e => {
   e.preventDefault();
@@ -17,6 +18,7 @@ searchBtn.on("click", e => {
 });
 
 function searchByCity() {
+  loading.modal("show");
   const searchValue = String(searchInput.val())
     .trim()
     .toLowerCase();
@@ -27,9 +29,13 @@ function searchByCity() {
       // throw new Error();
       console.log(res);
       updateView(res);
+
+      loading.modal("hide");
     })
     .catch(error => {
       console.error(error);
+
+      loading.modal("hide");
       window.location = "/error";
     });
 }

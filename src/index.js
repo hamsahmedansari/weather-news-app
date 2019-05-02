@@ -12,9 +12,9 @@ hbs.registerPartials(path.template + "/partials");
 app.use(express.static(path.public)); //Static
 app.get("/api/city", (req, res) => {
   const city = req.query.name;
-  // helper(city).then(d => {
-  //   res.send(d);
-  // });
+  helper(city).then(d => {
+    res.send(d);
+  });
   const static = {
     forecast: {
       City: {
@@ -245,7 +245,7 @@ app.get("/api/city", (req, res) => {
       }
     ]
   };
-  res.send(static);
+  // res.send(static);
 });
 app.get("/", (req, res) => {
   res.render("index");
