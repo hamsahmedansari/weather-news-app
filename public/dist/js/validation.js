@@ -37,7 +37,59 @@ $(document).ready(() => {
     updateForecastView(forecast);
     updateRegionView(region);
     updateForecastOwl(forecast);
+    updateNewsOwl(news);
   }
+  function updateNewsOwl(news) {
+    destroyOwlNews();
+    const owlNews = $(".owl-news");
+    let temp = "";
+    news.forEach(element => {
+      temp += `
+  <div class="card">
+                    <a class="img-card" target="_blank" href="${element.url}">
+                        <img
+                            src="${element.urlToImage}" />
+                    </a>
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            <a target="_blank" href="${element.url}">
+                                ${element.title}
+                            </a>
+                        </h4>
+                        <p>
+                        <span class="badge badge-pill badge-primary">${getDate(
+                          element.publishedAt
+                        )}</span>
+                        <span class="badge badge-pill badge-warning">${
+                          element.author ? element.author : "Anonymous"
+                        }</span>
+                        <span class="badge badge-pill badge-danger">${
+                          element.source.name
+                            ? element.source.name
+                            : "Anonymous"
+                        }</span>
+                        </p>
+                        <p class="">
+                        ${
+                          element.description.length > 90
+                            ? element.description.slice(0, 90) + "..."
+                            : element.description
+                        }
+                        </p>
+                    </div>
+                    <div class="card-read-more">
+                        <a class="btn btn-link btn-block" target="_blank" href="${
+                          element.url
+                        }">
+                            Read More
+                        </a>
+                    </div>
+                </div>`;
+    });
+    owlNews.html(temp);
+    createOwlNews();
+  }
+
   function updateForecastOwl({ forecast }) {
     destroyOwlForecast();
     const owlforecast = $(".owl-forecast");

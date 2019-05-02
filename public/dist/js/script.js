@@ -6,30 +6,6 @@ $(document).ready(function() {
     500,
     "linear"
   );
-
-  const owlNews = $(".owl-news");
-  owlNews.owlCarousel({
-    items: 7,
-    loop: true,
-    margin: 10,
-    autoplay: true,
-    autoplayTimeout: 1000,
-    autoplayHoverPause: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      300: {
-        items: 1
-      },
-      800: {
-        items: 2
-      },
-      1000: {
-        items: 3
-      }
-    }
-  });
   // scrolling effect
   $(document).on("scroll", function() {
     const section = $("#news").offset().top;
@@ -60,6 +36,35 @@ function changeSlide(params) {
     "linear"
   );
 }
+const owlNews = $(".owl-news");
+function createOwlNews() {
+  owlNews.owlCarousel({
+    items: 7,
+    loop: true,
+    margin: 10,
+    autoplay: true,
+    autoplayTimeout: 1000,
+    autoplayHoverPause: true,
+    responsive: {
+      0: {
+        items: 1
+      },
+      300: {
+        items: 1
+      },
+      800: {
+        items: 2
+      },
+      1000: {
+        items: 3
+      }
+    }
+  });
+}
+function destroyOwlNews() {
+  owlNews.owlCarousel("destroy");
+}
+
 const owlForecast = $(".owl-forecast");
 function createOwlForecast() {
   owlForecast.owlCarousel({
