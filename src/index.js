@@ -3,16 +3,20 @@ const hbs = require("hbs");
 const app = express();
 
 const path = require("./util/path");
-
+const helper = require("./util/helper");
 // view engine
 app.set("views", path.template + "/views");
 app.set("view engine", "hbs");
 hbs.registerPartials(path.template + "/partials");
 // routes
 app.use(express.static(path.public)); //Static
-
 app.get("/", (req, res) => {
   res.render("index");
+});
+app.get("/api/city", (req, res) => {
+  helper().then(d => {
+    res.send(d);
+  });
 });
 // server
 const port = process.env.PORT || 3000;
