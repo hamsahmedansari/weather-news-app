@@ -36,8 +36,34 @@ $(document).ready(() => {
   function updateView({ forecast, news, region }) {
     updateForecastView(forecast);
     updateRegionView(region);
+    updateForecastOwl(forecast);
   }
-
+  function updateForecastOwl({ forecast }) {
+    destroyOwlForecast();
+    const owlforecast = $(".owl-forecast");
+    let tempHtml = "";
+    forecast.forEach(element => {
+      tempHtml += `
+      <div class="p-2">
+                        <p>${getDate(element.Date)}</p>
+                        <p class="text-left"><img style="max-width: 90px;margin-left: -27px;" src="${getImageUrl(
+                          element.Day.Icon,
+                          element.Night.Icon
+                        )}"/></p>
+                        <h3><span class="view-temperature">${getTemperatureF(
+                          element.Temperature.Maximum.Value,
+                          element.Temperature.Minimum.Value
+                        )}</span>&#176;<span class="view-temperature-icon" >F</span> </h3>
+                        <p>${
+                          isDay()
+                            ? element.Day.IconPhrase
+                            : element.Night.IconPhrase
+                        }</p>
+                        </div>`;
+    });
+    owlforecast.html(tempHtml);
+    createOwlForecast();
+  }
   function updateForecastView({ forecast } = []) {
     const viewweathericon = $("#view-weather-icon");
     const viewweathertemperature = $("#view-weather-temperature");
@@ -45,13 +71,18 @@ $(document).ready(() => {
     const viewweatherdatetime = $("#view-weather-date-time");
 
     // setting image/icon
-    viewweathericon.attr("src", getImageUrl(forecast));
+    viewweathericon.attr(
+      "src",
+      getImageUrl(forecast[0].Day.Icon, forecast[0].Night.Icon)
+    );
     // setting temperature
-    const temperatureF =
-      (Number(forecast[0].Temperature.Maximum.Value) +
-        Number(forecast[0].Temperature.Minimum.Value)) /
-      2;
-    viewweathertemperature.html(Math.round(temperatureF));
+
+    viewweathertemperature.html(
+      getTemperatureF(
+        forecast[0].Temperature.Maximum.Value,
+        forecast[0].Temperature.Minimum.Value
+      )
+    );
     // setting parser
     viewweatherphase.html(getWeatherPace(forecast));
 
@@ -74,18 +105,12 @@ $(document).ready(() => {
       `${region.location.latitude},${region.location.longitude}`
     );
   }
-  function getImageUrl(forecast) {
+  function getImageUrl(day, night) {
     let imgNum = null;
     if (isDay()) {
-      imgNum =
-        forecast[0].Day.Icon < 10
-          ? "0".concat(forecast[0].Day.Icon)
-          : forecast[0].Day.Icon;
+      imgNum = day < 10 ? "0".concat(day) : day;
     } else {
-      imgNum =
-        forecast[0].Night.Icon < 10
-          ? "0".concat(forecast[0].Night.Icon)
-          : forecast[0].Night.Icon;
+      imgNum = night < 10 ? "0".concat(night) : night;
     }
     return `https://developer.accuweather.com/sites/default/files/${imgNum}-s.png`;
   }
@@ -121,6 +146,10 @@ $(document).ready(() => {
     const year = date.getFullYear();
 
     return day + " " + monthNames[monthIndex] + ", " + year;
+  }
+  function getTemperatureF(max, min) {
+    const temperatureF = (Number(max) + Number(min)) / 2;
+    return Math.round(temperatureF);
   }
   //
   searchByCity();

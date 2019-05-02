@@ -82,14 +82,14 @@ nav .navbar-toggler-icon {
   font-weight: 100;
 }
 
-.temperature i {
+.temperature img {
   font-size: 5vh;
   margin: 5px;
   margin-bottom: 20px;
   margin-right: 8px;
 }
 
-.temperature i.sunny {
+.temperature img.sunny {
   color: #f9d71c;
 }
 
@@ -226,5 +226,9 @@ nav .navbar-toggler-icon {
 
 strong {
   font-weight: 400;
+}
+
+.view-temperature-icon {
+  font-size: 15px;
 }
 /*# sourceMappingURL=main.css.map */
