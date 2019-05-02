@@ -250,6 +250,9 @@ app.get("/api/city", (req, res) => {
 app.get("/", (req, res) => {
   res.render("index");
 });
+app.get("/error", (req, res) => {
+  res.render("error");
+});
 app.get("*", (req, res) => {
   res.render("404");
 });
