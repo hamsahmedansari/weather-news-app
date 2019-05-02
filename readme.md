@@ -1,9 +1,9 @@
 # Weather News App
 
-An Weather News App using Nodejs ExpressJs For Demo ![Click here](https://github.com/hamsahmedansari/weather-news-app)
+An Weather News App using Nodejs ExpressJs For Demo ![Click here](https://salty-atoll-95069.herokuapp.com/)
 
 #Demo
-For Demo ![Click here](https://github.com/hamsahmedansari/weather-news-app)
+For Demo ![Click here](https://salty-atoll-95069.herokuapp.com/)
 
 ![](https://media.giphy.com/media/MEAYzCv5dawG1ZYfoB/giphy.gif)
 
