@@ -37,16 +37,11 @@ const getWether = city =>
           api.weather + City.key + "?apikey=" + api.ACCUWEATHER_KEY,
           (err, res, body) => {
             if (err) return reject(err);
-            const newRes = JSON.parse(body)[0];
+            const newRes = JSON.parse(body);
             if (!newRes) return reject("Unable to Get weather of " + city);
             const weatherObj = {
               City,
-              forcast: newRes.WeatherText,
-              isDay: newRes.IsDayTime,
-              temperature: {
-                c: newRes.Temperature.Metric.Value,
-                f: newRes.Temperature.Imperial.Value
-              }
+              forecast: newRes.DailyForecasts
             };
             resolve(weatherObj);
           }
@@ -97,7 +92,7 @@ const getDetails = (param = null) =>
         getWether(city).then(weatherRes => {
           getNews(weatherRes.City.country).then(newsRes => {
             resolve({
-              weather: weatherRes,
+              forecast: weatherRes,
               region: weatherRes.City,
               news: newsRes
             });

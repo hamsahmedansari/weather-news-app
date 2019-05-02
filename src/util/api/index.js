@@ -7,7 +7,7 @@ module.exports = {
   cities:
     "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=" +
     ACCUWEATHER_KEY,
-  weather: `http://dataservice.accuweather.com/currentconditions/v1/`,
+  weather: `http://dataservice.accuweather.com/forecasts/v1/daily/5day/`,
   ACCUWEATHER_KEY,
   newsApi: "https://newsapi.org/v2/top-headlines?q=",
   NEWS_KEY
