@@ -26,7 +26,6 @@ $(document).ready(() => {
       .then(res => res.json())
       .then(res => {
         console.log(res);
-
         updateView(res);
       })
       .catch(error => {
@@ -36,6 +35,7 @@ $(document).ready(() => {
 
   function updateView({ forecast, news, region }) {
     updateForecastView(forecast);
+    updateRegionView(region);
   }
 
   function updateForecastView({ forecast } = []) {
@@ -57,12 +57,22 @@ $(document).ready(() => {
 
     viewweatherdatetime.html(getDate(forecast[0].Date));
   }
-  function updateRegionView(params) {
-    // const view-region-country-details = $('#view-region-country-details');
-    // const view-region-country = $('#view-region-country');
-    // const view-region-content = $('#view-region-content');
-    // const view-region-state = $('#view-region-state');
-    // const view-region-country-news = $('#view-region-country-news');
+  function updateRegionView(region) {
+    const viewregioncountrydetails = $("#view-region-country-details");
+    const viewregioncountry = $("#view-region-country");
+    const viewregioncontinent = $("#view-region-continent");
+    const viewregionstate = $("#view-region-state");
+    const viewregioncountrynews = $("#view-region-country-news");
+    const viewregionlocation = $("#view-region-location");
+
+    viewregioncountrydetails.html(`${region.city},${region.country}`);
+    viewregioncountry.html(region.country);
+    viewregioncountrynews.html(region.country);
+    viewregioncontinent.html(region.continent);
+    viewregionstate.html(region.provence);
+    viewregionlocation.html(
+      `${region.location.latitude},${region.location.longitude}`
+    );
   }
   function getImageUrl(forecast) {
     let imgNum = null;
